@@ -14,7 +14,7 @@
             html {
                 font-family : Arial;
             }
-            /*.code #keyword { color : #ff0000; }*/
+            .code { background-color : #909090; }
         </style>
         <script>
             function codeHili(lan, input)
@@ -32,6 +32,7 @@
                 }
                 mots += [lettres];
                 console.log(mots);
+                document.write(mots);
             }
         </script>
     </head>
@@ -47,9 +48,9 @@
         </ul>
         
         <div class="code">
-            <!--script>
+            <script>
                 code("python", "print(\"hello\")");
-            </script-->
+            </script>
         </div>
     </body>
 </html>
