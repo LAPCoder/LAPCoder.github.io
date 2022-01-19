@@ -19,6 +19,8 @@
                 margin-left: 50px;
                 margin-right: 50px;
             }
+            
+            code keyword { color : green; }
         </style>
         <script>
             function codeHili(lan, input)
@@ -27,6 +29,13 @@
                 let lettres = "";
                 for(let i = 0; i < input.length; i++)
                 {
+                    if(input[i] in ["'", '"', "(", ")", "[", "]", "{", "}", "<", ">", "="])
+                    {
+                        mots += [lettres];
+                        lettres = "";
+                        mots += [input[i]];
+                        i++;
+                    }
                     lettres += input[i];
                     if(input[i] == " " | input[i] == "\n" | input[i] == "\t")
                     {
@@ -36,6 +45,16 @@
                 }
                 mots += [lettres];
                 console.log(mots);
+                if(lan == "python")
+                {
+                    for(let i = 0; i < mots.length; i++)
+                    {
+                        if(mots[i] in ["print", "input"])
+                        {
+                            mots[i] = ["<keyword>" + mot[i] + "</keyword>"]
+                        }
+                    }
+                }
                 document.write(mots);
             }
         </script>
