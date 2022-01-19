@@ -19,8 +19,17 @@
         <script>
             function code(lan, input)
             {
-                let mots = []
-                for
+                let mots = [];
+                let lettres = "";
+                for(let i = 0; i < input.len; i++)
+                {
+                    lettres += input[i];
+                    if(input[i] == " " | input[i] == "\n" | input[i] == "\t")
+                    {
+                        mots += [lettres];
+                        lettres = "";
+                    }
+                }
             }
         </script>
     </head>
