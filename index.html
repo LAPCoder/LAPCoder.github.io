@@ -17,7 +17,7 @@
             .code #keyword { color : #ff0000; }
         </style>
         <script>
-            function code(lan, input)
+            function code(var lan, var input)
             {
                 let mots = [];
                 let lettres = "";
@@ -30,6 +30,7 @@
                         lettres = "";
                     }
                 }
+                console.log(lettres, mots);
             }
         </script>
     </head>
