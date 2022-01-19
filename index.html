@@ -15,7 +15,7 @@
                 font-family : Arial;
             }
             code { 
-                background-color : #b0b0b0;
+                background-color : #f0f0f0;
                 margin-left: 50px;
                 margin-right: 50px;
             }
@@ -31,19 +31,19 @@
                 {
                     if(input[i] in ["'", '"', "(", ")", "[", "]", "{", "}", "<", ">", "="])
                     {
-                        mots += [lettres];
+                        mots.push(lettres);
                         lettres = "";
-                        mots += [input[i]];
+                        mots.push(input[i]);
                         i++;
                     }
                     lettres += input[i];
                     if(input[i] == " " | input[i] == "\n" | input[i] == "\t")
                     {
-                        mots += [lettres];
+                        mots.push(lettres);
                         lettres = "";
                     }
                 }
-                mots += [lettres];
+                mots.push(lettres);
                 console.log(mots);
                 if(lan == "python")
                 {
