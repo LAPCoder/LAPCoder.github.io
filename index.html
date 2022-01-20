@@ -25,36 +25,55 @@
         <script>
             function codeHili(lan, input)
             {
-                let mots = [];
-                let lettres = "";
-                for(let i = 0; i < input.length; i++)
-                {
-                    if(input[i] in ["'", '"', "(", ")", "[", "]", "{", "}", "<", ">", "="])
-                    {
-                        mots.push(lettres);
+                var keywordsPy = ["and", "as", "assert", "break", "class", "continue", "def", "del", "elif", "else", "except", "exec", "finally", "for", "from", "global", "if", "import", "in", "is", "lambda", "not", "or", "pass", "print", "raise", "return", "try", "while", "with", "yield"];
+                var functPy = ["help", "dir", "print", "input", "raw_input", "len", "range", "ord", "locals", "globals", "str", "int", "open", "close", "read", "readline", "readlines", "tell", "seek", "write"]
+
+                mots = [];
+                lettres = "";
+                for(let i = 0; i < input.length; i++) {
+                    /*if (input[i] in ["'", '"', "(", ")", "[", "]", "{", "}", "<", ">", "="]) {
+                        if (lettres != "") {
+                            mots.push(lettres);
+                        }
                         lettres = "";
                         mots.push(input[i]);
-                        i++;
-                    }
-                    lettres += input[i];
-                    if(input[i] == " " | input[i] == "\n" | input[i] == "\t")
-                    {
-                        mots.push(lettres);
-                        lettres = "";
+                    } else {*/
+
+                    if(input[i] == " " | input[i] == "\n" | input[i] == "\t" | ["'", '"', "(", ")", "[", "]", "{", "}", "<", ">", "="].includes(input[i])) {
+                        if(input[i] == "\\") {
+                            if(input[i] == "\n" | input[i] == "\t") {
+                                mots.push(lettres);
+                                lettres = "";
+                                lettres += input[i];
+                                mots.push(lettres);
+                                lettres = "";
+                            }
+                        } else {
+                            mots.push(lettres);
+                            lettres = "";
+                            lettres += input[i];
+                            mots.push(lettres);
+                            lettres = "";
+                        }
+
+                    } else {
+                        lettres += input[i];
                     }
                 }
-                mots.push(lettres);
+
+                if(!lettres == "undefined") {
+                    mots.push(lettres);
+                }
+
                 console.log(mots);
-                if(lan == "python")
-                {
-                    for(let i = 0; i < mots.length; i++)
-                    {
-                        if(mots[i] in ["print", "input"])
-                        {
-                            mots[i] = ["<keyword>" + mot[i] + "</keyword>"]
+                if(lan == "python") {
+                    for(let i = 0; i < mots.length; i++) {
+                        if(keywordsPy.includes(mots[i])) {
+                            mots[i] = "<keyword>" + mots[i] + "</keyword>"
                         }
                     }
                 }
+                console.log(mots);
                 document.write(mots);
             }
         </script>
