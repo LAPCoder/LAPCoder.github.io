@@ -44,22 +44,21 @@
                     } else {*/
 
                     if(input[i] == " " | input[i] == "\n" | input[i] == "\t" | ["'", '"', "(", ")", "[", "]", "{", "}", "<", ">", "="].includes(input[i])) {
-                        if(input[i] == "\\") {
-                            if(input[i] == "\n") {
-                                mots.push(lettres);
-                                lettres = "";
-                                lettres += "<br />";
-                                mots.push(lettres);
-                                lettres = "";
-                            }
-                            if(input[i] == "\t") {
-                                mots.push(lettres);
-                                lettres = "";
-                                lettres += "<indent></indent>";
-                                mots.push(lettres);
-                                lettres = "";
-                            }
-                        } else {
+                        if(input[i] == "\n") {
+                            mots.push(lettres);
+                            lettres = "";
+                            lettres += "<br />";
+                            mots.push(lettres);
+                            lettres = "";
+                        }
+                        else if(input[i] == "\t") {
+                            mots.push(lettres);
+                            lettres = "";
+                            lettres += "<indent></indent>";
+                            mots.push(lettres);
+                            lettres = "";
+                        }
+                        else {
                             mots.push(lettres);
                             lettres = "";
                             lettres += input[i];
