@@ -19,13 +19,15 @@
                 margin-left: 50px;
                 margin-right: 50px;
             }
-            code { margin : 5px;}
+            code { padding : 5px;}
             code keyword { color : green; }
             code funct   { color : red; }
+            code crochets { color : #953800; }
         </style>
         <script>
             function codeHili(lan, input)
             {
+                var crochets = ["'", '"', "(", ")", "[", "]", "{", "}", "<", ">"];
                 var keywordsPy = ["and", "as", "assert", "break", "class", "continue", "def", "del", "elif", "else", "except", "exec", "finally", "for", "from", "global", "if", "import", "in", "is", "lambda", "not", "or", "pass", "print", "raise", "return", "try", "while", "with", "yield"];
                 var functPy = ["help", "dir", "print", "input", "raw_input", "len", "range", "ord", "locals", "globals", "str", "int", "open", "close", "read", "readline", "readlines", "tell", "seek", "write"]
 
@@ -75,6 +77,9 @@
                         if(functPy.includes(mots[i])) {
                             mots[i] = "<funct>" + mots[i] + "</funct>"
                         }
+                        if(crochets.includes(mots[i])) {
+                            mots[i] = "<crochets>" + mots[i] + "</crochets>"
+                        }
                     }
                 }
                 console.log(mots);
@@ -95,7 +100,7 @@
         
         <code>
             <script>
-                codeHili("python", "print(\"hello\")");
+                codeHili("python", "print(\"hello\")\nfor i in range(10):\n\tprint(i)");
             </script>
         </code>
     </body>
