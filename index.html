@@ -19,8 +19,9 @@
                 margin-left: 50px;
                 margin-right: 50px;
             }
-            
+            code { margin : 5px;}
             code keyword { color : green; }
+            code funct   { color : red; }
         </style>
         <script>
             function codeHili(lan, input)
@@ -71,10 +72,13 @@
                         if(keywordsPy.includes(mots[i])) {
                             mots[i] = "<keyword>" + mots[i] + "</keyword>"
                         }
+                        if(functPy.includes(mots[i])) {
+                            mots[i] = "<funct>" + mots[i] + "</funct>"
+                        }
                     }
                 }
                 console.log(mots);
-                document.write(mots);
+                document.write(mots.join(""));
             }
         </script>
     </head>
