@@ -58,7 +58,7 @@
                         else if(input[i] == "\t") {
                             mots.push(lettres);
                             lettres = "";
-                            lettres += "<div class=\"indent\">";
+                            lettres += "<p class=\"indent\">";
                             indent ++;
                             mots.push(lettres);
                             lettres = "";
@@ -81,7 +81,7 @@
                 }
                 
                 for(let i = 0; i < indent; i++) {
-                    mots.push("</div>");
+                    mots.push("</p>");
                 }
                 console.log(mots);
                 if(lan == "python") {
