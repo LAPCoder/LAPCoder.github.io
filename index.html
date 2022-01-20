@@ -14,12 +14,15 @@
             html {
                 font-family : Arial;
             }
-            code { 
-                background-color : #f0f0f0;
+            #code {
                 margin-left: 50px;
                 margin-right: 50px;
+                padding : 5px;
+                background-color: #eee;
+                border-radius: 3px;
+                font-family: courier, monospace;
+                padding: 0 3px;
             }
-            code { padding : 5px;}
             code keyword  { color : green; }
             code funct    { color : red; }
             code crochets { color : #953800; }
@@ -54,7 +57,7 @@
                         else if(input[i] == "\t") {
                             mots.push(lettres);
                             lettres = "";
-                            lettres += "<indent />";
+                            lettres += "<indent></indent>";
                             mots.push(lettres);
                             lettres = "";
                         }
@@ -105,12 +108,10 @@
             <li>💖 It love coding</li>
         </ul>
         
-        <code>
-            <p>
-                <script>
-                    codeHili("python", "print(\"hello\")\nfor i in range(10):\n\tprint(i)");
-                </script>
-            </p>
-        </code>
+        <p id="code">
+            <script>
+                codeHili("python", "print(\"hello\")\nfor i in range(10):\n\tprint(i)");
+            </script>
+        </p>
     </body>
 </html>
