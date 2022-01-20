@@ -54,7 +54,7 @@
                         else if(input[i] == "\t") {
                             mots.push(lettres);
                             lettres = "";
-                            lettres += "<indent></indent>";
+                            lettres += "<indent />";
                             mots.push(lettres);
                             lettres = "";
                         }
@@ -106,9 +106,11 @@
         </ul>
         
         <code>
-            <script>
-                codeHili("python", "print(\"hello\")\nfor i in range(10):\n\tprint(i)");
-            </script>
+            <p>
+                <script>
+                    codeHili("python", "print(\"hello\")\nfor i in range(10):\n\tprint(i)");
+                </script>
+            </p>
         </code>
     </body>
 </html>
