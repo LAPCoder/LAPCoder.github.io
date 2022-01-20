@@ -20,14 +20,15 @@
                 margin-right: 50px;
             }
             code { padding : 5px;}
-            code keyword { color : green; }
-            code funct   { color : red; }
+            code keyword  { color : green; }
+            code funct    { color : red; }
             code crochets { color : #953800; }
+            code indent   { text-indent : 2em; }
         </style>
         <script>
             function codeHili(lan, input)
             {
-                var crochets = ["'", '"', "(", ")", "[", "]", "{", "}", "<", ">"];
+                var crochets = ["'", '"']; //, "(", ")", "[", "]", "{", "}", "<", ">"
                 var keywordsPy = ["and", "as", "assert", "break", "class", "continue", "def", "del", "elif", "else", "except", "exec", "finally", "for", "from", "global", "if", "import", "in", "is", "lambda", "not", "or", "pass", "print", "raise", "return", "try", "while", "with", "yield"];
                 var functPy = ["help", "dir", "print", "input", "raw_input", "len", "range", "ord", "locals", "globals", "str", "int", "open", "close", "read", "readline", "readlines", "tell", "seek", "write"]
 
@@ -44,10 +45,17 @@
 
                     if(input[i] == " " | input[i] == "\n" | input[i] == "\t" | ["'", '"', "(", ")", "[", "]", "{", "}", "<", ">", "="].includes(input[i])) {
                         if(input[i] == "\\") {
-                            if(input[i] == "\n" | input[i] == "\t") {
+                            if(input[i] == "\n") {
                                 mots.push(lettres);
                                 lettres = "";
-                                lettres += input[i];
+                                lettres += "<br />;
+                                mots.push(lettres);
+                                lettres = "";
+                            }
+                            if(input[i] == "\t") {
+                                mots.push(lettres);
+                                lettres = "";
+                                lettres += "<indent></indent>;
                                 mots.push(lettres);
                                 lettres = "";
                             }
