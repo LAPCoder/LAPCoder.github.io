@@ -1,0 +1,16 @@
+html {
+    font-family : Arial;
+}
+#code {
+    margin-left: 50px;
+    margin-right: 50px;
+    padding : 5px;
+    background-color: #eee;
+    border-radius: 3px;
+    font-family: courier, monospace;
+    padding: 0 3px;
+}
+#code keyword  { color : green; }
+#code funct    { color : red; }
+#code crochets { color : #953800; }
+#code .indent   { text-indent : 2em; }
