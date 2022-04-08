@@ -1,105 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://LAPCoder.github.io/">
-        <meta property="og:title" content="GitHub Pages | LAPCoder Website">
-        <meta property="og:description" content="LAPCoder Website : website">
-        <meta property="og:image" content="">
 
-        <title>LAPCoder</title>
-        
-        <link href="styles.css" />
-        <script>
-            function codeHili(lan, input)
-            {
-                var crochets = ["'", '"']; //, "(", ")", "[", "]", "{", "}", "<", ">"
-                var keywordsPy = ["and", "as", "assert", "break", "class", "continue", "def", "del", "elif", "else", "except", "exec", "finally", "for", "from", "global", "if", "import", "in", "is", "lambda", "not", "or", "pass", "print", "raise", "return", "try", "while", "with", "yield"];
-                var functPy = ["help", "dir", "print", "input", "raw_input", "len", "range", "ord", "locals", "globals", "str", "int", "open", "close", "read", "readline", "readlines", "tell", "seek", "write"]
-                
-                indent = 0;
-                mots = [];
-                lettres = "";
-                for(let i = 0; i < input.length; i++) {
-                    /*if (input[i] in ["'", '"', "(", ")", "[", "]", "{", "}", "<", ">", "="]) {
-                        if (lettres != "") {
-                            mots.push(lettres);
-                        }
-                        lettres = "";
-                        mots.push(input[i]);
-                    } else {*/
+<!--
+      ___       ___        _______    _______
+     /  /      /   |      /  ___  |  /  ____/
+    /  /      /    |     /  /__/  / /  /
+   /  /      /  .  |    /  ______/ /  /       ______  ____    ______  ____
+  /  /      /  /|  |   /  /       /  /       / __  / / _  \  / ____/ / __ \
+ /  /____  /  __   |  /  /       /  /____   / /_/ / / /_) / / ____/ / _   /
+/_______/ /__/  |__| /__/       /_______/  /_____/ /_____/ /_____/ /_/ |_|
 
-                    if(input[i] == " " | input[i] == "\n" | input[i] == "\t" | ["'", '"', "(", ")", "[", "]", "{", "}", "<", ">", "="].includes(input[i])) {
-                        if(input[i] == "\n") {
-                            mots.push(lettres);
-                            lettres = "";
-                            lettres += "<br />";
-                            mots.push(lettres);
-                            lettres = "";
-                        }
-                        else if(input[i] == "\t") {
-                            mots.push(lettres);
-                            lettres = "";
-                            lettres += "<p class=\"indent\">";
-                            indent ++;
-                            mots.push(lettres);
-                            lettres = "";
-                        }
-                        else {
-                            mots.push(lettres);
-                            lettres = "";
-                            lettres += input[i];
-                            mots.push(lettres);
-                            lettres = "";
-                        }
+-->
 
-                    } else {
-                        lettres += input[i];
-                    }
-                }
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="LAPCoder's website" />
+		<meta name="author" content="LAPCoder" />
+		<title>LAPCoder Website</title>
+		<link rel="icon" href="/images/favicon.png" />
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/vs.min.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous">
+		</script>
+		<script src="/script.js"></script>
+	</head>
 
-                if(!lettres == "undefined") {
-                    mots.push(lettres);
-                }
-                
-                for(let i = 0; i < indent; i++) {
-                    mots.push("</p>");
-                }
-                console.log(mots);
-                if(lan == "python") {
-                    for(let i = 0; i < mots.length; i++) {
-                        if(keywordsPy.includes(mots[i])) {
-                            mots[i] = "<keyword>" + mots[i] + "</keyword>"
-                        }
-                        if(functPy.includes(mots[i])) {
-                            mots[i] = "<funct>" + mots[i] + "</funct>"
-                        }
-                        if(crochets.includes(mots[i])) {
-                            mots[i] = "<crochets>" + mots[i] + "</crochets>"
-                        }
-                    }
-                }
-                console.log(mots);
-                document.write(mots.join(""));
-            }
-        </script>
-    </head>
-    <body>
-        <h1>Hey!</h1>
-        I’m <a href="https://github.com/LAPCoder">LAPCoder</a>
-        <ul>
-            <li>✅ It's my profile !</li>
-            <li>👀 I’m interested in code</li>
-            <li>🌱 I’m currently learning code</li>
-            <li>💞️ I’m looking to collaborate on code</li>
-            <li>💖 It love coding</li>
-        </ul>
-        
-        <p id="code">
-            <script>
-                codeHili("python", "print(\"hello\")\nfor i in range(10):\n\    print(i)");
-            </script>
-        </p>
-    </body>
+	<body>
+		<section class="main">
+			<!-- Main of the document -->
+			<h2>Hey!</h2>
+			<p class="presentation">
+				I'm a developer! <br />
+				I'm...
+			</p>
+			<h1>LAPCoder</h1>
+			<p class="presentation">
+				I code some stuff. <br />
+				I am a programmer. <br />
+				I am a developer. <br />
+				I am a coder. <br />
+			</p>
+			<p id="stats">
+				OK. Now, some <span class="stats">stats</span> about me:
+			</p>
+			<!-- Thanks https://github.com/anuraghazra/github-readme-stats for 2 images: -->
+			<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=LAPCoder&langs_count=10&count_private=true&show_icons=true&text_color=0050a0&hide_border=true&include_all_commits=true&hide_title=true&layout=compact&bg_color=fff0"
+				alt="LAPCoder's Languages stats" />
+			<img src="https://github-readme-stats.vercel.app/api?username=LAPCoder&count_private=true&show_icons=true&text_color=0050a0&hide_border=true&include_all_commits=true&hide_title=true&show_chart=true&bg_color=fff0"
+				alt="LAPCoder's GitHub stats" />
+
+			<!-- Thanks to https://github.com/ryo-ma/github-profile-trophy for this image: -->
+			<img src="https://github-profile-trophy.vercel.app/?username=LAPCoder&no-bg=true&no-frame=true&no-frame=true"
+				alt="LAPCoder's Trophy" />
+
+			<p>
+				I'm also a <span class="stats">coder</span>!
+			</p>
+		</section>
+		
+		<div id="header"></div>
+	</body>
+
 </html>

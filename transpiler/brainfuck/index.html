@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="LAPCoder's website" />
+		<meta name="author" content="LAPCoder" />
+		<title>Brainfuck compiler</title>
+		<link rel="icon" href="/images/favicon.png" />
+		<link rel="stylesheet" href="/styles.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/vs.min.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/brainfuck.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+		</script>
+		<script src="/script.js"></script>
+		<script src="/transpiler/brainfuck/brainfuck.js"></script>
+	</head>
+	<body>
+		<section class="main">
+			<h1>Brainfuck compiler</h1>
+			<div class="code">
+				<pre id="bf">
+
+<div class="lang hljs">Brainfuck - code.bf</div>
+<code id="codeBf" class="brainfuck" onkeypress="hljs.highlightAll();" contenteditable>++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.
+>+.+++++++..+++.>++.<<+++++++++++++++.>.
++++.------.--------.>+.>.</code></pre>
+				<button id="compile" onclick="compile(document.getElementById('codeBf').innerText);">Compile</button>
+				<pre id="output">
+
+<div class="lang hljs">Output - code.bf</div>
+<code id="outputCode" class="lang hljs nohighlight">Your code will appair here...</code></pre>
+			</div>
+			<div id="header"></div>
+		</section>
+	</body>
+</html>

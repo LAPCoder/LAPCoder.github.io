@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="LAPCoder's website" />
+		<meta name="author" content="LAPCoder" />
+		<title>LAPCoder's languages</title>
+		<link rel="icon" href="/images/favicon.png" />
+		<link rel="stylesheet" href="../styles.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/vs.min.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/brainfuck.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+		</script>
+		<script src="/script.js"></script>
+	</head>
+
+	<body>
+		<section class="main">
+			<div class="code">
+				<h1>I code that:</h1>
+				<pre id="4u">
+
+<div class="lang hljs">4U - example.4u</div>
+<code class="4u">t_var = "I am a text variable";
+print t_var;</code></pre>
+				<pre id="c">
+
+<div class="lang hljs">C - example.c</div>
+<code class="c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main(void)
+{
+unsigned long long int i = 1, j = 1;
+printf("Hi! I can create it:\n");
+while (i &lt;= 10000000000)
+{
+	printf("%llu\n%llu", i, j);
+	i+=j;
+	j+=i;
+}
+return 0;
+}</code></pre>
+				<pre id="cpp">
+
+<div class="lang hljs">C++ - example.cpp</div>
+<code class="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+/* It's just a simple demo */
+
+int main()
+{
+	unsigned long long int i = 1, j = 1;
+	std::cout &lt;&lt; "Hi! I can create it:\n";
+	while (i &lt;= 10000000000)
+	{
+		std::cout &lt;&lt; i &lt;&lt; std::endl &lt;&lt; j;
+		i+=j;
+		j+=i;
+	}
+	return 0;
+}</code></pre>
+				<pre id="java">
+
+<div class="lang hljs">Java - example.java</div>
+<code class="java">import java.util.Scanner;
+import java.util.StringTokenizer;
+
+/* It's just an example simple, a demo. */
+
+public class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner in = new Scanner(System.in);
+		StringTokenizer st;
+		long long int i = 1, j = 1;
+		System.out.println("Hi! I can create it:");
+		while (i &lt;= 10000000000)
+		{
+			System.out.println(i);
+			System.out.println(j);
+			i+=j;
+			j+=i;
+		}
+	}
+}</code></pre>
+			<pre id="py">
+
+<div class="lang hljs">Python - example.py</div>
+<code class="py">#!/usr/bin/python
+import random
+# Used for a python rock-paper-scissors game
+def get_best_move():
+global rock_number
+global paper_number
+global scissors_number
+
+if rock_number > paper_number and rock_number > scissors_number:
+	return "p"
+elif paper_number > rock_number and paper_number > scissors_number:
+	return "s"
+elif scissors_number > rock_number and scissors_number > paper_number:
+	return "r"
+else:
+	return random.choice(["r", "p", "s"])</code></pre>
+			</div>
+			<pre id="html">
+
+<div class="lang hljs">HTML - index.html</div>
+<code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;title&gt;Demo&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Demo&lt;/h1&gt;
+		&lt;p&gt;This is a demo page&lt;/p&gt;
+		&lt;p&gt;It's just a demo&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+			<pre id="css">
+
+<div class="lang hljs">CSS - example.css</div>
+<code class="css">body {
+	background-color: #f0f0f0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+}
+h1 {
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.3333333;
+	color: #333;
+}
+p {
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+}
+.lang {
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+}
+.c {
+	color: #0086b3;
+}
+.cpp {
+	color: #0086b3;
+}
+.java {
+	color: #0086b3;
+}</code></pre>
+
+			<pre id="js">
+
+<div class="lang hljs">JavaScript - example.js</div>
+<code class="js">var rock_number = 0;
+var paper_number = 0;
+var scissors_number = 0;
+var best_move = get_best_move();
+if (best_move == "r") {
+	rock_number++;
+}
+else if (best_move == "p") {
+	paper_number++;
+}
+else {
+	scissors_number++;
+}
+console.log("Rock: " + rock_number);
+console.log("Paper: " + paper_number);
+console.log("Scissors: " + scissors_number);</code></pre>
+
+			<pre id="php">
+
+<div class="lang hljs">PHP - example.php</div>
+<code class="php">&lt;?php 
+	&#36;rock_number = 0;
+	&#36;paper_number = 0;
+	&#36;scissors_number = 0;
+	&#36;best_move = get_best_move();
+	if (&#36;best_move == "r") {
+		&#36;rock_number++;
+	}
+	else if (&#36;best_move == "p") {
+		&#36;paper_number++;
+	}
+	else {
+		&#36;scissors_number++;
+	}
+	echo "Rock: " . &#36;rock_number . "&lt;br&gt;";
+	echo "Paper: " . &#36;paper_number . "&lt;br&gt;";
+	echo "Scissors: " . &#36;scissors_number . "&lt;br&gt;";
+?&gt;</code></pre>
+
+			<pre id="bash">
+
+<div class="lang hljs">Bash - example.sh</div>
+<code class="bash">#!/bin/bash
+
+echo "Hi! I can create it:"
+while [ $i -le 10000000000 ]
+do
+	echo $i
+	echo $j
+	i=$((i+j))
+	j=$((j+i))
+done</code></pre>
+
+			<pre id="batch">
+
+<div class="lang hljs">Batch - example.bat</div>
+<code class="batch">@echo off
+
+:: This is a Demo
+
+echo "Hi! I can create it:"
+for /L %i in (1,1,100000000) do (
+	echo %i
+	echo %j
+	i=%i+%j
+	j=%j+%i
+)</code></pre>
+
+			<pre id="cs">
+
+<div class="lang hljs">C# - example.cs</div>
+<code class="cs">using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// It's just an example simple, a demo.
+
+public class Main
+{
+	public static void Main(string[] args)
+	{
+		Console.WriteLine("Hi! I can create it:");
+		long i = 1, j = 1;
+		while (i &lt;= 10000000000)
+		{
+			Console.WriteLine(i);
+			Console.WriteLine(j);
+			i += j;
+			j += i;
+		}
+	}
+}</code></pre>
+
+			<pre id="lex">
+
+<div class="lang hljs">Lex - example.lex</div>
+<code class="lex">%{
+	char get_best_move(rock_number, paper_number, scissors_number)) {
+		if (rock_number > paper_number && rock_number > scissors_number) {
+			return "p";
+		}
+		else if (paper_number > rock_number && paper_number > scissors_number) {
+			return "s";
+		}
+		else if (scissors_number > rock_number && scissors_number > paper_number) {
+			return "r";
+		}
+		else {
+			return random.choice(["r", "p", "s"]);
+		}
+	}
+%}</code></pre>
+
+			<pre id="yacc">
+
+<div class="lang hljs">Yacc - example.y</div>
+<code class="yacc">%{
+	#include &lt;stdio.h&gt;
+	// This is a function to play at rock-paper-scissors game.
+	void play() {
+		rock_number = 0;
+		paper_number = 0;
+		scissors_number = 0;
+		best_move = get_best_move(rock_number, paper_number, scissors_number);
+		if (best_move == "r") {
+			rock_number++;
+		}
+		else if (best_move == "p") {
+			paper_number++;
+		}
+		else {
+			scissors_number++;
+		}
+		printf("Rock: %d\n", rock_number);
+		printf("Paper: %d\n", paper_number);
+		printf("Scissors: %d\n", scissors_number);
+	}
+%}</code></pre>
+
+			<pre id="openscad">
+
+<div class="lang hljs">OpenSCAD - example.scad</div>
+<code class="openscad">module example() {
+	translate([0, 0, 0]) cube([1, 1, 1]);
+}</code></pre>
+
+			<pre id="arduino">
+
+<div class="lang hljs">Arduino - example.ino</div>
+<code class="arduino">#include &lt;Arduino.h&gt;
+
+/* Setup */
+void setup() {
+	Serial.begin(9600);
+}
+
+/* Loop */
+void loop() {
+	Serial.println("Hi! I can create it:");
+	long i = 1, j = 1;
+	while (i &lt;= 10000000000) {
+		Serial.println(i);
+		Serial.println(j);
+		i += j;
+		j += i;
+	}
+}</code></pre>
+			<pre id="bf">
+
+<div class="lang hljs">Brainfuck - example.bf</div>
+<code class="bf">++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.
+>+.+++++++..+++.>++.<<+++++++++++++++.>.
++++.------.--------.>+.>.</code></pre>
+
+			<div id="header"></div>
+		</section>
+	</body>
+
+</html>
