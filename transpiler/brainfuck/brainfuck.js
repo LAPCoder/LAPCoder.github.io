@@ -1,4 +1,5 @@
 function compile(brainfuckCode) {
+	document.getElementById('codeBf').innerHTML = document.getElementById('codeBf').innerText;
 	var output = "";
 	var pointer = 0;
 	var memory = [];
@@ -6,11 +7,32 @@ function compile(brainfuckCode) {
 	var loopStack = [];
 	var loopPointer = 0;
 	var loopCount = 0;
+	var exeTime = 0;
 
 	const outputElem = document.getElementById("outputCode");
 
 	for (var i = 0; i < brainfuckCode.length; i++) {
+		exeTime++;
 		var char = brainfuckCode[i];
+		if (exeTime > 999999) {
+			output = "<span style='color: red;'>Error</span>: Infinite loop detected.";
+			outputElem.innerHTML = output;
+			console.error(`Infinite loop detected.\nLoop execution time: ${exeTime}.`);
+			console.info(`i: ${i}. char: ${char}. inputPointer: ${inputPointer}.\npointer: ${pointer}.\nmemory: ${memory}.\nloopStack: ${loopStack}.\nloopPointer: ${loopPointer}.\nloopCount: ${loopCount}.`);
+			return;
+		}
+		for (var j = 0; j < memory.length; j++) {
+			if (! memory[j]) {
+				memory[j] = 0;
+			}
+			if (memory[j] > 255 || memory[j] < 0) {
+				memory[j] = memory[j] % 256;
+			}
+			if (memory[j] < 0) {
+				memory[j] += 256;
+			}
+		}
+
 		switch (char) {
 			case '>':
 				pointer++;
@@ -19,21 +41,37 @@ function compile(brainfuckCode) {
 				pointer--;
 				break;
 			case '+':
+				if (memory[pointer] === undefined) {
+					memory[pointer] = 0;
+				}
 				memory[pointer]++;
 				break;
 			case '-':
+				if (memory[pointer] === undefined) {
+					memory[pointer] = 0;
+				}
 				memory[pointer]--;
 				break;
 			case '.':
+				if (memory[pointer] === undefined) {
+					memory[pointer] = 0;
+				}
 				output += String.fromCharCode(memory[pointer]);
 				break;
 			case ',':
+				if (memory[pointer] === undefined) {
+					memory[pointer] = 0;
+				}
 				memory[pointer] = input[inputPointer++];
 				break;
 			case '[':
+				if (memory[pointer] === undefined) {
+					memory[pointer] = 0;
+				}
 				if (memory[pointer] == 0) {
 					var loopStart = i;
 					var loopEnd = -1;
+					loopCount++;
 					for (var j = i + 1; j < brainfuckCode.length; j++) {
 						if (brainfuckCode[j] == '[') {
 							loopCount++;
@@ -49,49 +87,37 @@ function compile(brainfuckCode) {
 						output = "<span style='color: red;'>Error</span>: Unmatched loop start at " + loopStart;
 						outputElem.innerHTML = output;
 						throw "Unmatched loop start at " + loopStart;
+
 					}
 					i = loopEnd;
 				}
 				break;
 			case ']':
+				if (memory[pointer] === undefined) {
+					memory[pointer] = 0;
+				}
 				if (memory[pointer] != 0) {
-					var loopStart = i;
-					var loopEnd = -1;
+					var loopEnd = i;
+					var loopStart = -1;
+					loopCount++;
 					for (var j = i - 1; j >= 0; j--) {
+						//console.log(j);
 						if (brainfuckCode[j] == ']') {
 							loopCount++;
 						} else if (brainfuckCode[j] == '[') {
 							loopCount--;
 							if (loopCount == 0) {
-								loopEnd = j;
+								loopStart = j;
 								break;
 							}
 						}
 					}
-					if (loopEnd == -1) {
-						output = "<span style='color: red;'>Error</span>: Unmatched loop end at " + loopStart;
+					if (loopStart == -1) {
+						output = "<span style='color: red;'>Error</span>: Unmatched loop end at " + loopEnd;
 						outputElem.innerHTML = output;
-						throw "Unmatched loop end at " + loopStart;
+						throw "Unmatched loop end at " + loopEnd;
 					}
-					i = loopEnd;
-
-					loopStack[loopPointer++] = i;
-
-					if (loopPointer > loopStack.length) {
-						loopStack.length = loopPointer;
-					}
-
-					loopPointer--;
-
-					i = loopStack[loopPointer];
-
-					loopPointer--;
-
-					loopCount = 0;
-
-					i--;
-
-					break;
+					i = loopStart;
 				}
 				break;
 			default:
@@ -99,4 +125,5 @@ function compile(brainfuckCode) {
 		}
 	}
 	outputElem.innerText = output;
+	console.info("Execution time: " + exeTime + "\nMemory: " + memory);
 }
