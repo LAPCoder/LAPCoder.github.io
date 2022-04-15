@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+	
 <!--
       ___       ___        _______    _______
      /  /      /   |      /  ___  |  /  ____/
@@ -19,16 +19,20 @@
 		<meta name="description" content="LAPCoder's website" />
 		<meta name="author" content="LAPCoder" />
 		<title>LAPCoder Website</title>
-		<link rel="icon" href="/images/favicon.png" />
+		<link rel="icon" href="/images/favicon2.png" />
 		<link rel="stylesheet" href="styles.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/vs.min.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/vs.min.css"
+		/>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
 		<script
 			src="https://code.jquery.com/jquery-3.3.1.js"
 			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-			crossorigin="anonymous">
-		</script>
+			crossorigin="anonymous"
+		></script>
 		<script src="/script.js"></script>
+		<!-- A short header... -->
 	</head>
 
 	<body>
@@ -39,7 +43,9 @@
 				I'm a developer! <br />
 				I'm...
 			</p>
+
 			<h1>LAPCoder</h1>
+
 			<p class="presentation">
 				I code some stuff. <br />
 				I am a programmer. <br />
@@ -47,24 +53,35 @@
 				I am a coder. <br />
 			</p>
 			<p id="stats">
-				OK. Now, some <span class="stats">stats</span> about me:
+				OK. Now, some
+				<span class="stats" data-descr="It's some stats.">stats</span>
+				about me:
 			</p>
-			<!-- Thanks https://github.com/anuraghazra/github-readme-stats for 2 images: -->
-			<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=LAPCoder&langs_count=10&count_private=true&show_icons=true&text_color=0050a0&hide_border=true&include_all_commits=true&hide_title=true&layout=compact&bg_color=fff0"
-				alt="LAPCoder's Languages stats" />
-			<img src="https://github-readme-stats.vercel.app/api?username=LAPCoder&count_private=true&show_icons=true&text_color=0050a0&hide_border=true&include_all_commits=true&hide_title=true&show_chart=true&bg_color=fff0"
-				alt="LAPCoder's GitHub stats" />
+			<div class="statsImg">
+				<!-- Thanks https://github.com/anuraghazra/github-readme-stats for 2 images: -->
+				<img
+					src="https://github-readme-stats.vercel.app/api/top-langs/?username=LAPCoder&langs_count=10&count_private=true&show_icons=true&text_color=0050a0&hide_border=true&include_all_commits=true&hide_title=true&layout=compact&bg_color=fff0"
+					alt="LAPCoder's Languages stats"
+				/>
+				<img
+					src="https://github-readme-stats.vercel.app/api?username=LAPCoder&count_private=true&show_icons=true&text_color=0050a0&hide_border=true&include_all_commits=true&hide_title=true&show_chart=true&bg_color=fff0"
+					alt="LAPCoder's GitHub stats"
+				/>
 
-			<!-- Thanks to https://github.com/ryo-ma/github-profile-trophy for this image: -->
-			<img src="https://github-profile-trophy.vercel.app/?username=LAPCoder&no-bg=true&no-frame=true&no-frame=true"
-				alt="LAPCoder's Trophy" />
-
+				<!-- Thanks to https://github.com/ryo-ma/github-profile-trophy for this image: -->
+				<img
+					src="https://github-profile-trophy.vercel.app/?username=LAPCoder&no-bg=true&no-frame=true&no-frame=true"
+					alt="LAPCoder's Trophy"
+				/>
+			</div>
 			<p>
-				I'm also a <span class="stats">coder</span>!
+				I'm also a
+				<span class="stats" data-descr="It's me.">coder</span>!<br />
+				And I love coding!
 			</p>
 		</section>
-		
+
+		<!-- Right side -->
 		<div id="header"></div>
 	</body>
-
 </html>

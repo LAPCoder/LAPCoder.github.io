@@ -1,1 +1,1 @@
-# Redirection page.
+# Redirection page

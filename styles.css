@@ -8,22 +8,34 @@
 
 html {
 	font-family: arial, verdana, "trebuchet MS", helvetica, sans-serif;
+	min-height: max(100%, 100vh);
 }
 
 body {
 	margin: 0;
 	background: #00ffe7;
 	background: linear-gradient(-30deg, #f100ff 0%, #ffec00 40%, #00ffe7 80%);
-	background: -webkit-linear-gradient(120deg, #f100ff 0%, #ffec00 40%, #00ffe7 80%);
-	background: -moz-linear-gradient(120deg, #f100ff 0%, #ffec00 40%, #00ffe7 80%);
+	background: -webkit-linear-gradient(
+		120deg,
+		#f100ff 0%,
+		#ffec00 40%,
+		#00ffe7 80%
+	);
+	background: -moz-linear-gradient(
+		120deg,
+		#f100ff 0%,
+		#ffec00 40%,
+		#00ffe7 80%
+	);
 	background-repeat: no-repeat;
 }
 
 h1 {
-	font-size: 5em;
+	font-size: max(min(5em, 20vw), 30px);
 	color: #fff;
-	text-shadow: 7px 7px 10px black;
+	text-shadow: 7px 7px 10px black, 0 0 3px red;
 	text-align: center;
+	max-width: 100%;
 }
 
 h2 {
@@ -48,14 +60,94 @@ p {
 	font-size: 1.5em;
 	color: #fff;
 	text-align: center;
-	/*margin-right: 10em;
-	margin-left: 10em;*/
+	text-shadow: 0 0 5px #000;
+}
+
+*[data-descr] {
+	position: relative;
+	text-decoration: underline dotted;
+	cursor: help;
+}
+
+*[data-descr]:hover::after,
+*[data-descr]:active::after {
+	content: attr(data-descr);
+	text-decoration: none;
+	text-shadow: none;
+	text-align: start;
+	position: absolute;
+	left: 0;
+	top: 45px;
+	min-width: 20px;
+	width: max-content;
+	border: 1px #aaaaaa solid;
+	border-radius: 10px;
+	background-color: #ffffff;
+	padding: 12px;
+	color: #000000;
+	font-size: 14px;
+	z-index: 1;
+}
+
+#messages {
+	max-height: 50vh;
+	overflow: auto;
+}
+
+.quack {
+	font-size: 1.5em;
+	color: rgb(0, 0, 0);
+	text-align: left;
+	margin: 0;
+	margin-left: 60px;
+	overflow-x: auto;
+	text-shadow: none;
+}
+
+.userQuack {
+	font-size: 1.5em;
+	color: rgb(0, 0, 0);
+	text-align: right;
+	margin: 0;
+	margin-right: 60px;
+	overflow-x: auto;
+	text-shadow: none;
+}
+
+.amessage {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	min-height: 70px;
+}
+
+.statsImg {
+	background-color: rgba(255, 255, 191, 0.712);
+	margin: 1em;
+	border: 20px solid;
+	border-radius: 20px;
+	border-color: aqua;
 }
 
 p.presentation {
 	font-size: 1.5em;
 	color: rgba(0, 0, 0, 0.75);
 	text-shadow: 7px 7px 10px rgb(255, 255, 255);
+}
+
+.profile {
+	float: left;
+	margin-left: 0px;
+	margin-right: 0px;
+	height: 50px;
+	font-size: 50px;
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+
+.profileUsr {
+	float: right;
 }
 
 div.lang {
@@ -81,17 +173,18 @@ button {
 	cursor: pointer;
 }
 
-pre>code,
-pre>div {
-	font-family: 'Fira code', monospace;
-	font-feature-settings: "ss01", "zero", "ss05", "ss03", "ss02", "cv25", "cv26", "cv32", "ss07";
+pre > code,
+pre > div {
+	font-family: "Fira code", monospace;
+	font-feature-settings: "ss01", "zero", "ss05", "ss03", "ss02", "cv25",
+		"cv26", "cv32", "ss07";
 	font-size: 13px;
 }
 
 span.stats {
 	font-size: 1.5em;
 	color: #fff;
-	text-shadow: 7px 7px 10px rgb(255, 255, 255);
+	text-shadow: 7px 7px 10px #000, 0 0 5px #000;
 	text-align: center;
 }
 
@@ -100,7 +193,26 @@ section.main {
 }
 
 header a,
-header nav>div>div>div>span {
+header nav > div > div > div > span {
+	text-decoration: none;
+}
+
+div#duck {
+	background-color: #f0f0f0;
+	margin: 0.5em;
+	padding: 0.5em;
+}
+
+input#inputUsr {
+	width: 100%;
+	border: 0;
+	background-color: #fff;
+	font-size: 1.5em;
+	font-weight: bold;
+	padding: 0;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	text-align: center;
 	text-decoration: none;
 }
 
@@ -127,191 +239,197 @@ header nav div.nav-container {
 	display: table-row;
 }
 
-header nav div.nav-container>div {
+header nav div.nav-container > div {
 	display: table-cell;
 }
 
-header nav div.nav-container>div>label {
+header nav div.nav-container > div > label {
 	cursor: pointer;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+1) .slide,
-header nav div.nav-container>div:nth-of-type(9n+1) a {
+header nav div.nav-container > div:nth-of-type(9n + 1),
+header nav div.nav-container > div:nth-of-type(9n + 8),
+header nav div.nav-container > div:nth-of-type(9n + 9) {
+	display: none;
+}
+
+header nav div.nav-container > div:nth-of-type(9n + 1) .slide,
+header nav div.nav-container > div:nth-of-type(9n + 1) a {
 	border-color: #8cc63f;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+1) .slide:hover,
-header nav div.nav-container>div:nth-of-type(9n+1) a:hover {
+header nav div.nav-container > div:nth-of-type(9n + 1) .slide:hover,
+header nav div.nav-container > div:nth-of-type(9n + 1) a:hover {
 	color: #567b24;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+1) .slide~.child-menu,
-header nav div.nav-container>div:nth-of-type(9n+1) a~.child-menu {
+header nav div.nav-container > div:nth-of-type(9n + 1) .slide ~ .child-menu,
+header nav div.nav-container > div:nth-of-type(9n + 1) a ~ .child-menu {
 	background-color: #a4d266;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+1) input:checked~label,
-header nav div.nav-container>div:nth-of-type(9n+1) .slide.active~label {
+header nav div.nav-container > div:nth-of-type(9n + 1) input:checked ~ label,
+header nav div.nav-container > div:nth-of-type(9n + 1) .slide.active ~ label {
 	color: #8cc63f;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+2) .slide,
-header nav div.nav-container>div:nth-of-type(9n+2) a {
+header nav div.nav-container > div:nth-of-type(9n + 2) .slide,
+header nav div.nav-container > div:nth-of-type(9n + 2) a {
 	border-color: #ef3724;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+2) .slide:hover,
-header nav div.nav-container>div:nth-of-type(9n+2) a:hover {
+header nav div.nav-container > div:nth-of-type(9n + 2) .slide:hover,
+header nav div.nav-container > div:nth-of-type(9n + 2) a:hover {
 	color: #a11a0c;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+2) .slide~.child-menu,
-header nav div.nav-container>div:nth-of-type(9n+2) a~.child-menu {
+header nav div.nav-container > div:nth-of-type(9n + 2) .slide ~ .child-menu,
+header nav div.nav-container > div:nth-of-type(9n + 2) a ~ .child-menu {
 	background-color: #f26254;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+2) input:checked~label,
-header nav div.nav-container>div:nth-of-type(9n+2) .slide.active~label {
+header nav div.nav-container > div:nth-of-type(9n + 2) input:checked ~ label,
+header nav div.nav-container > div:nth-of-type(9n + 2) .slide.active ~ label {
 	color: #ef3724;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+3) .slide,
-header nav div.nav-container>div:nth-of-type(9n+3) a {
+header nav div.nav-container > div:nth-of-type(9n + 3) .slide,
+header nav div.nav-container > div:nth-of-type(9n + 3) a {
 	border-color: #ffa61a;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+3) .slide:hover,
-header nav div.nav-container>div:nth-of-type(9n+3) a:hover {
+header nav div.nav-container > div:nth-of-type(9n + 3) .slide:hover,
+header nav div.nav-container > div:nth-of-type(9n + 3) a:hover {
 	color: #b36d00;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+3) .slide~.child-menu,
-header nav div.nav-container>div:nth-of-type(9n+3) a~.child-menu {
+header nav div.nav-container > div:nth-of-type(9n + 3) .slide ~ .child-menu,
+header nav div.nav-container > div:nth-of-type(9n + 3) a ~ .child-menu {
 	background-color: #ffba4d;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+3) input:checked~label,
-header nav div.nav-container>div:nth-of-type(9n+3) .slide.active~label {
+header nav div.nav-container > div:nth-of-type(9n + 3) input:checked ~ label,
+header nav div.nav-container > div:nth-of-type(9n + 3) .slide.active ~ label {
 	color: #ffa61a;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+4) .slide,
-header nav div.nav-container>div:nth-of-type(9n+4) a {
+header nav div.nav-container > div:nth-of-type(9n + 4) .slide,
+header nav div.nav-container > div:nth-of-type(9n + 4) a {
 	border-color: #1ab1ff;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+4) .slide:hover,
-header nav div.nav-container>div:nth-of-type(9n+4) a:hover {
+header nav div.nav-container > div:nth-of-type(9n + 4) .slide:hover,
+header nav div.nav-container > div:nth-of-type(9n + 4) a:hover {
 	color: #0076b3;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+4) .slide~.child-menu,
-header nav div.nav-container>div:nth-of-type(9n+4) a~.child-menu {
+header nav div.nav-container > div:nth-of-type(9n + 4) .slide ~ .child-menu,
+header nav div.nav-container > div:nth-of-type(9n + 4) a ~ .child-menu {
 	background-color: #4dc2ff;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+4) input:checked~label,
-header nav div.nav-container>div:nth-of-type(9n+4) .slide.active~label {
+header nav div.nav-container > div:nth-of-type(9n + 4) input:checked ~ label,
+header nav div.nav-container > div:nth-of-type(9n + 4) .slide.active ~ label {
 	color: #1ab1ff;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+5) .slide,
-header nav div.nav-container>div:nth-of-type(9n+5) a {
-	border-color: #FC1DCF;
+header nav div.nav-container > div:nth-of-type(9n + 5) .slide,
+header nav div.nav-container > div:nth-of-type(9n + 5) a {
+	border-color: #fc1dcf;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+5) .slide:hover,
-header nav div.nav-container>div:nth-of-type(9n+5) a:hover {
+header nav div.nav-container > div:nth-of-type(9n + 5) .slide:hover,
+header nav div.nav-container > div:nth-of-type(9n + 5) a:hover {
 	color: #b1028d;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+5) .slide~.child-menu,
-header nav div.nav-container>div:nth-of-type(9n+5) a~.child-menu {
+header nav div.nav-container > div:nth-of-type(9n + 5) .slide ~ .child-menu,
+header nav div.nav-container > div:nth-of-type(9n + 5) a ~ .child-menu {
 	background-color: #fd4fda;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+5) input:checked~label,
-header nav div.nav-container>div:nth-of-type(9n+5) .slide.active~label {
-	color: #FC1DCF;
+header nav div.nav-container > div:nth-of-type(9n + 5) input:checked ~ label,
+header nav div.nav-container > div:nth-of-type(9n + 5) .slide.active ~ label {
+	color: #fc1dcf;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+6) .slide,
-header nav div.nav-container>div:nth-of-type(9n+6) a {
+header nav div.nav-container > div:nth-of-type(9n + 6) .slide,
+header nav div.nav-container > div:nth-of-type(9n + 6) a {
 	border-color: #2d20e0;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+6) .slide:hover,
-header nav div.nav-container>div:nth-of-type(9n+6) a:hover {
+header nav div.nav-container > div:nth-of-type(9n + 6) .slide:hover,
+header nav div.nav-container > div:nth-of-type(9n + 6) a:hover {
 	color: #2d23b1;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+6) .slide~.child-menu,
-header nav div.nav-container>div:nth-of-type(9n+6) a~.child-menu {
+header nav div.nav-container > div:nth-of-type(9n + 6) .slide ~ .child-menu,
+header nav div.nav-container > div:nth-of-type(9n + 6) a ~ .child-menu {
 	background-color: #1100ff;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+6) input:checked~label,
-header nav div.nav-container>div:nth-of-type(9n+6) .slide.active~label {
+header nav div.nav-container > div:nth-of-type(9n + 6) input:checked ~ label,
+header nav div.nav-container > div:nth-of-type(9n + 6) .slide.active ~ label {
 	color: #2d20e0;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+7) .slide,
-header nav div.nav-container>div:nth-of-type(9n+7) a {
+header nav div.nav-container > div:nth-of-type(9n + 7) .slide,
+header nav div.nav-container > div:nth-of-type(9n + 7) a {
 	border-color: #009c0d;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+7) .slide:hover,
-header nav div.nav-container>div:nth-of-type(9n+7) a:hover {
+header nav div.nav-container > div:nth-of-type(9n + 7) .slide:hover,
+header nav div.nav-container > div:nth-of-type(9n + 7) a:hover {
 	color: #007a0a;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+7) .slide~.child-menu,
-header nav div.nav-container>div:nth-of-type(9n+7) a~.child-menu {
+header nav div.nav-container > div:nth-of-type(9n + 7) .slide ~ .child-menu,
+header nav div.nav-container > div:nth-of-type(9n + 7) a ~ .child-menu {
 	background-color: #00b90f;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+7) input:checked~label,
-header nav div.nav-container>div:nth-of-type(9n+7) .slide.active~label {
+header nav div.nav-container > div:nth-of-type(9n + 7) input:checked ~ label,
+header nav div.nav-container > div:nth-of-type(9n + 7) .slide.active ~ label {
 	color: #009c0d;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+8) .slide,
-header nav div.nav-container>div:nth-of-type(9n+8) a {
+header nav div.nav-container > div:nth-of-type(9n + 8) .slide,
+header nav div.nav-container > div:nth-of-type(9n + 8) a {
 	border-color: #ffff00;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+8) .slide:hover,
-header nav div.nav-container>div:nth-of-type(9n+8) a:hover {
+header nav div.nav-container > div:nth-of-type(9n + 8) .slide:hover,
+header nav div.nav-container > div:nth-of-type(9n + 8) a:hover {
 	color: #e0e000;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+8) .slide~.child-menu,
-header nav div.nav-container>div:nth-of-type(9n+8) a~.child-menu {
+header nav div.nav-container > div:nth-of-type(9n + 8) .slide ~ .child-menu,
+header nav div.nav-container > div:nth-of-type(9n + 8) a ~ .child-menu {
 	background-color: #ffff2f;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+8) input:checked~label,
-header nav div.nav-container>div:nth-of-type(9n+8) .slide.active~label {
+header nav div.nav-container > div:nth-of-type(9n + 8) input:checked ~ label,
+header nav div.nav-container > div:nth-of-type(9n + 8) .slide.active ~ label {
 	color: #ffff00;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+9) .slide,
-header nav div.nav-container>div:nth-of-type(9n+9) a {
+header nav div.nav-container > div:nth-of-type(9n + 9) .slide,
+header nav div.nav-container > div:nth-of-type(9n + 9) a {
 	border-color: #8400ff;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+9) .slide:hover,
-header nav div.nav-container>div:nth-of-type(9n+9) a:hover {
+header nav div.nav-container > div:nth-of-type(9n + 9) .slide:hover,
+header nav div.nav-container > div:nth-of-type(9n + 9) a:hover {
 	color: #6600c5;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+9) .slide~.child-menu,
-header nav div.nav-container>div:nth-of-type(9n+9) a~.child-menu {
+header nav div.nav-container > div:nth-of-type(9n + 9) .slide ~ .child-menu,
+header nav div.nav-container > div:nth-of-type(9n + 9) a ~ .child-menu {
 	background-color: #9626ff;
 }
 
-header nav div.nav-container>div:nth-of-type(9n+9) input:checked~label,
-header nav div.nav-container>div:nth-of-type(9n+9) .slide.active~label {
+header nav div.nav-container > div:nth-of-type(9n + 9) input:checked ~ label,
+header nav div.nav-container > div:nth-of-type(9n + 9) .slide.active ~ label {
 	color: #8400ff;
 }
 
@@ -354,6 +472,13 @@ header nav .slide {
 	-o-transition-delay: 0.2s, 0s;
 	-webkit-transition-delay: 0.2s, 0s;
 	transition-delay: 0.2s, 0s;
+}
+
+header nav div:focus,
+header nav div.child-menu a:focus,
+header nav a.slide:focus {
+	background-color: #80ff0088;
+	color: #000;
 }
 
 header nav .slide .element {
@@ -430,8 +555,9 @@ header nav .child-menu a {
 	font-size: 0.9375em;
 }
 
-header nav input:checked~.child-menu {
-	max-height: 100px;
+header nav input:checked~.child-menu,
+header nav label.slide:focus~div.child-menu {
+	max-height: 100em;
 	-moz-transition-property: max-height;
 	-o-transition-property: max-height;
 	-webkit-transition-property: max-height;
@@ -446,7 +572,8 @@ header nav input:checked~.child-menu {
 	transition-timing-function: ease-in;
 }
 
-header nav input:checked~.has-child .name:after {
+header nav input:checked ~ .has-child .name:after,
+header nav label.slide:focus ~ .has-child .name:after {
 	-moz-transform: rotateX(180deg);
 	-webkit-transform: rotateX(180deg);
 	transform: rotateX(180deg);
@@ -462,12 +589,13 @@ header nav input:checked~.has-child .name:after {
 		display: block;
 	}
 
-	header nav div.nav-container>div {
-		display: block;
+	header nav div.nav-container > div {
+		display: block !important;
 		margin: 5px 0;
 	}
 
-	header nav div.nav-container>div:hover .slide {
+	header nav div.nav-container > div:hover .slide,
+	header nav div.nav-container .slide:focus {
 		border-left-width: 55px;
 		-moz-transition-delay: 0;
 		-o-transition-delay: 0;
@@ -499,22 +627,23 @@ header nav input:checked~.has-child .name:after {
 	}
 
 	header nav .child-menu a,
-	header nav>div>div>div>span {
+	header nav > div > div > div > span {
 		color: #393939;
 		display: block;
 		padding: 3px 0 3px 10px;
 		font-size: 0.8125em;
 	}
 
-	header nav>div>div>div>span {
+	header nav > div > div > div > span {
 		padding-left: 0px;
 	}
 
-	header nav input:checked~div.child-menu {
+	header nav input:checked ~ div.child-menu,
+	header nav label:focus ~ div.child-menu {
 		max-height: 100em;
 	}
 
-	header nav input:checked~.slide {
+	header nav input:checked ~ .slide {
 		border-width: 55px;
 	}
 }
