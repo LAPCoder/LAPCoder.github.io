@@ -1,3 +1,3 @@
 # Contribuing
 
-You can ask to contribute.
+You can suggest an improvement.

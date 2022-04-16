@@ -7,9 +7,9 @@ function randomNumber(min, max) {
 }
 
 function returnSomeQuack() {
-	const quackList = ["Quack", "Quuuack", "Quaaack", "Quackkk", "🦆", "🌊"];
+	const quackList = ["Quack", "Quuuack", "Quaaack", "Quackkk", "Qu@ck", "Qua©k", "🦆", "🌊"];
 	const endQuack = [".", "!", "?", "..."];
-	const middleQuack = [". ", "! ", "? ", "...", ", ", " "];
+	const middleQuack = [". ", "! ", "? ", "... ", ", ", " "];
 	var number = randomNumber(1, 5);
 	var returnQuacks = "";
 
