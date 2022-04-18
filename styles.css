@@ -89,6 +89,12 @@ p {
 	z-index: 1;
 }
 
+#inputBf {
+	width: 90%;
+	margin: auto;
+	text-align: center;
+}
+
 #messages {
 	max-height: 50vh;
 	overflow: auto;

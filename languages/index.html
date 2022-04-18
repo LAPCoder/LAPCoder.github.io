@@ -42,15 +42,15 @@ print t_var;</code></pre>
 
 int main(void)
 {
-unsigned long long int i = 1, j = 1;
-printf("Hi! I can create it:\n");
-while (i &lt;= 10000000000)
-{
-	printf("%llu\n%llu", i, j);
-	i+=j;
-	j+=i;
-}
-return 0;
+	unsigned long long int i = 1, j = 1;
+	printf("Hi! I can create it:\n");
+	while (i &lt;= 10000000000)
+	{
+		printf("%llu\n%llu", i, j);
+		i+=j;
+		j+=i;
+	}
+	return 0;
 }</code></pre>
 				<pre id="cpp">
 
@@ -104,18 +104,18 @@ public class Main
 import random
 # Used for a python rock-paper-scissors game
 def get_best_move():
-global rock_number
-global paper_number
-global scissors_number
+	global rock_number
+	global paper_number
+	global scissors_number
 
-if rock_number > paper_number and rock_number > scissors_number:
-	return "p"
-elif paper_number > rock_number and paper_number > scissors_number:
-	return "s"
-elif scissors_number > rock_number and scissors_number > paper_number:
-	return "r"
-else:
-	return random.choice(["r", "p", "s"])</code></pre>
+	if rock_number > paper_number and rock_number > scissors_number:
+		return "p"
+	elif paper_number > rock_number and paper_number > scissors_number:
+		return "s"
+	elif scissors_number > rock_number and scissors_number > paper_number:
+		return "r"
+	else:
+		return random.choice(["r", "p", "s"])</code></pre>
 			</div>
 			<pre id="html">
 
@@ -123,7 +123,7 @@ else:
 <code class="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
+		&lt;meta charset="UTF-8" /&gt;
 		&lt;title&gt;Demo&lt;/title&gt;
 	&lt;/head&gt;
 	&lt;body&gt;
@@ -206,9 +206,9 @@ console.log("Scissors: " + scissors_number);</code></pre>
 	else {
 		&#36;scissors_number++;
 	}
-	echo "Rock: " . &#36;rock_number . "&lt;br&gt;";
-	echo "Paper: " . &#36;paper_number . "&lt;br&gt;";
-	echo "Scissors: " . &#36;scissors_number . "&lt;br&gt;";
+	echo "Rock: " . &#36;rock_number . "&lt;br /&gt;";
+	echo "Paper: " . &#36;paper_number . "&lt;br /&gt;";
+	echo "Scissors: " . &#36;scissors_number . "&lt;br /&gt;";
 ?&gt;</code></pre>
 
 			<pre id="bash">

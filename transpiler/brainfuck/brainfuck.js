@@ -10,6 +10,7 @@ function compile(brainfuckCode) {
 	var exeTime = 0;
 
 	const outputElem = document.getElementById("outputCode");
+	const inputBf = document.getElementById("inputBf").value;
 
 	for (var i = 0; i < brainfuckCode.length; i++) {
 		exeTime++;
@@ -62,7 +63,11 @@ function compile(brainfuckCode) {
 				if (memory[pointer] === undefined) {
 					memory[pointer] = 0;
 				}
-				memory[pointer] = input[inputPointer++];
+				if (inputBf.length != 0) {
+					memory[pointer] = inputBf.charCodeAt(inputPointer);
+					if (inputBf.length >= inputPointer + 1)
+						inputPointer++;
+				}
 				break;
 			case '[':
 				if (memory[pointer] === undefined) {
