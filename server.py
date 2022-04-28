@@ -2,7 +2,7 @@ import http.server, ssl
 
 # Simple server for debug.
 # When debugging, you don't have to restart the server.
-# Just refresh the page (localhost:PORT)
+# Just refresh the page (localhost:PORT, 8080 by default)
 
 server = http.server.HTTPServer
 

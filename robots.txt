@@ -1,0 +1,21 @@
+# Bots
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: AdsBot-Google
+User-agent: AdsBot-Google-Mobile
+Disallow: /images/
+Disallow: /ThreeJs.LAPCoder/
+Disallow: /*.md$
+Disallow: /header.html
+Disallow: /.github/
+Disallow: /.gitignore
+Disallow: /.gitattributes
+
+# Other
+User-agent: *
+Disallow: /.github/
+Disallow: /.gitignore
+Disallow: /.gitattributes
+Allow: /
+Allow: /*.html$
+Allow: /*.js$
