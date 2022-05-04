@@ -44,7 +44,9 @@ function sayQuack() {
 
 	if (!inputUsr == "") {
 		divQuack.innerHTML +=
-			"<div class='amessage'><img class='profile profileUsr' src='https://images.vectorhq.com/images/previews/fb4/tiger-face-clip-art-105756.png' alt='😸' /><p class='userQuack'>" +
+			"<div class='amessage'>\
+			<img class='profile profileUsr' src='https://images.vectorhq.com/images/previews/fb4/tiger-face-clip-art-105756.png' alt='😸' />\
+			<p class='userQuack'>" +
 			inputUsr +
 			"</p></div>";
 		divQuack.innerHTML +=

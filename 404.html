@@ -21,7 +21,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>404 - Page Not Found</title>
-		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link rel="icon" href="/images/favicon2.png" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Chango&family=Roboto:wght@300&display=swap"
 			rel="stylesheet"
@@ -31,22 +31,21 @@
 				background: #50e0ff;
 				background: -webkit-linear-gradient(47deg,#50e0ff 0%, #55ff55 80%);
 				background: -moz-linear-gradient(47deg,#50e0ff 0%, #55ff55 80%);
-				background-size: cover;
 				font-family: 'Roboto', sans-serif;
+				margin: 0;
 			}
 			main {
 				display: flex;
-				height: 100vh;
+				min-height: 100vh;
 				justify-content: center;
 				align-items: center;
 				flex-direction: column;
+				margin-left: 1em;
+				margin-right: 1em;
 			}
-			.header404 {
+			.header-404 {
 				font-family: Arial, Helvetica, sans-serif;
 				font-size: 48px;
-			}
-			.content404 {
-				text-align: center;
 			}
 			code {
 				background-color: white;
@@ -54,20 +53,42 @@
 				border-radius: 5px;
 				padding: 3px;
 			}
+			p {
+				text-align: center;
+			}
+			button {
+				background-color: #ffffff88;
+				border: none;
+				margin: 0;
+			}
+			button:hover {
+				background-color: #b8b8b888;
+			}
+			button:active {
+				background-color: #88888888;
+			}
 		</style>
 	</head>
 	<body>
 		<main>
-			<h4 class="header404">404</h4>
-			<div class="content-404">
-				Uh-oh! We couldn't find the page you are looking for.
-			</div>
-			You can try to add an <code>/</code> at the end of URL, like:
-			<code>https://lapcoder.github.io/4U-Programming-language</code>
-			to
-			<code>https://lapcoder.github.io/4U-Programming-language/</code>
+			<h4 class="header-404">404</h4>
+			
+			Uh-oh! We couldn't find the page you are looking for.
+			<p>
+				You can try to add an <code>/</code> at the end of URL, like:
+			</p>
+				<code>https://lapcoder.github.io/4U-Programming-language</code>
+			<p>
+				to
+			</p>
+				<code>https://lapcoder.github.io/4U-Programming-language/</code>
 			<p>
 				<a href="/">Check LAPCoder home page</a>
+
+				Else, you can 
+				<button onclick="history.back()">
+					go back
+				</button>.
 			</p>
 			Other pages
 			<ul>

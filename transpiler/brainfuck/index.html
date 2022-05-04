@@ -42,20 +42,20 @@
 	</head>
 	<body>
 		<section class="main">
-			<h1>Brainfuck compiler</h1>
+			<h1>Brainfuck executor</h1>
 			<div class="code">
 				<pre id="bf">
 
 <div class="lang hljs">Brainfuck - code.bf</div>
-<code id="codeBf" class="brainfuck" onkeypress="hljs.highlightAll();" contenteditable>++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.
->+.+++++++..+++.>++.<<+++++++++++++++.>.
+<code id="codeBf" class="brainfuck" onkeypress="hljs.highlightAll();" contenteditable>++++++++++[>+++++++>++++++++++>+++>+&lt;&lt;&lt;&lt;-]>++.
+>+.+++++++..+++.>++.&lt;&lt;+++++++++++++++.>.
 +++.------.--------.>+.>.</code>
 <input class="hljs" id="inputBf" placeholder="Type your inputs here. 1st char is 1st input, 2nd char is 2nd input..." /></pre>
 				<button
 					id="compile"
 					onclick="compile(document.getElementById('codeBf').innerText);"
 				>
-					Compile
+					Execute
 				</button>
 				<pre id="output">
 
