@@ -15,7 +15,10 @@
  */
 
 function compile(brainfuckCode) {
-	document.getElementById('codeBf').innerHTML = document.getElementById('codeBf').innerText;
+	// document.getElementById('codeBf').innerHTML = document.getElementById('codeBf').innerText;
+	var t = document.getElementById('codeBf').innerText;
+	document.getElementById('codeBf').innerHTML = "";
+	document.getElementById('codeBf').innerText = t;
 	var output = "";
 	var pointer = 0;
 	var memory = [];

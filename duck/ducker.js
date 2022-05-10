@@ -43,6 +43,34 @@ function sayQuack() {
 	var inputUsr = document.getElementById("inputUsr").value;
 
 	if (!inputUsr == "") {
+		var d = document.createElement("div");
+		var i = document.createElement("img");
+		var p = document.createElement("p");
+		var t = document.createTextNode(inputUsr);
+		d.classList.add("amessage");
+		i.classList.add("profile profileUsr");
+		d.classList.add("userQuack");
+		i.src = "https://images.vectorhq.com/images/previews/fb4/tiger-face-clip-art-105756.png";
+		i.alt = "😸";
+		p.appendChild(t);
+		d.appendChild(i);
+		d.appendChild(p);
+		divQuack.appendChild(d);
+
+		var d2 = document.createElement("div");
+		var i2 = document.createElement("img");
+		var p2 = document.createElement("p");
+		var t2 = document.createTextNode(returnSomeQuack());
+		d2.classList.add("amessage");
+		i2.classList.add("profile");
+		d2.classList.add("quack");
+		i2.src = "/images/duck.svg";
+		i2.alt = "🦆";
+		p2.appendChild(t2);
+		d2.appendChild(i2);
+		d2.appendChild(p2);
+		divQuack.appendChild(d2);
+		/*
 		divQuack.innerHTML +=
 			"<div class='amessage'>\
 			<img class='profile profileUsr' src='https://images.vectorhq.com/images/previews/fb4/tiger-face-clip-art-105756.png' alt='😸' />\
@@ -52,7 +80,7 @@ function sayQuack() {
 		divQuack.innerHTML +=
 			"<div class='amessage'><img class='profile' src='/images/duck.svg' alt='🦆'/><p class='quack'>" +
 			returnSomeQuack() +
-			"</p></div>";
+			"</p></div>";*/
 		inputUsr = "";
 	}
 }
