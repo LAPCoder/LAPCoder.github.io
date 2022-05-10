@@ -48,7 +48,8 @@ function sayQuack() {
 		var p = document.createElement("p");
 		var t = document.createTextNode(inputUsr);
 		d.classList.add("amessage");
-		i.classList.add("profile profileUsr");
+		i.classList.add("profile");
+		i.classList.add("profileUsr");
 		d.classList.add("userQuack");
 		i.src = "https://images.vectorhq.com/images/previews/fb4/tiger-face-clip-art-105756.png";
 		i.alt = "😸";
