@@ -19,3 +19,5 @@ hljs.initHighlightingOnLoad();
 $(function () {
 	$("#header").load("/header.html");
 });
+
+var $SITE = "LAPCoder";
