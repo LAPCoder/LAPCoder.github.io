@@ -62,7 +62,7 @@
 				<div>
 					<script>
 						/** START OF LAPCODER NAVBAR */
-						if (($SITE = "LAPCoder"))
+						if ($SITE === "LAPCoder")
 							document.querySelector("header>nav>div").innerHTML =
 								`<div class="nav-container">
 									<div>
@@ -240,6 +240,45 @@
 									</div>` + document.querySelector("header>nav").innerHTML;
 						/** END OF LAPCODER NAVBAR */
 						/** START OF SNABBGET NAVBAR */
+						if ($SITE === "SnabbGET")
+							document.querySelector("header>nav>div").innerHTML =
+								`<div class="nav-container">
+									<div>
+										<input id="slider1" name="slider1" type="checkbox" />
+										<label
+											class="slide has-child"
+											for="slider1"
+											tabindex="0"
+										>
+											<span class="element">Rp</span>
+											<span class="name">Repositories</span>
+										</label>
+										<div class="child-menu">
+											<span class="name">GitHub:</span>
+											<a href="https://github.com/SnabbGET/SnabbGET"
+												>SnabbGET terminal</a
+											>
+											<a href="https://github.com/SnabbGET/SnabbGET.github.io"
+												>SnabbGET website</a
+											>
+										</div>
+									</div>
+									<div>
+										<a class="slide" href="https://github.com/SnabbGET">
+											<span class="element">GH</span>
+											<span class="name">GitHub</span>
+										</a>
+									</div>
+									<div>
+										<a
+											class="slide"
+											href="https://github.com/LAPCoder/SanbbGET.github.io/pulls"
+										>
+											<span class="element">Ct</span>
+											<span class="name">Contribute</span>
+										</a>
+									</div>` + document.querySelector("header>nav").innerHTML;
+						/** END OF SNABBGET NAVBAR */
 					</script>
 					<div>
 						<a class="slide" href="#">
