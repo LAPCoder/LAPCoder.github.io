@@ -450,6 +450,12 @@ header nav label.slide:focus ~ .has-child .name:after {
 	}
 }
 
+#site-select {
+	background: #393939;
+	border: 0px;
+	color: white;
+}
+
 .masthead {
 	font-family: "Open Sans", sans-serif;
 	background-color: #fff7;
@@ -460,7 +466,8 @@ header nav label.slide:focus ~ .has-child .name:after {
 	background-color: #393939;
 }
 
-.masthead .brand-container a {
+.masthead .brand-container a,
+.masthead .brand-container span.brand-name {
 	color: white;
 	display: inline-block;
 	-moz-transition-property: all;

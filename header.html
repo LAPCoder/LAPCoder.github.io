@@ -18,8 +18,8 @@
 
 <html>
 	<body>
-		<link rel="stylesheet" href="https://lapcoder.github.io/header.css" />
-		<!-- This hader can be used on many sites -->
+		<link rel="stylesheet" href="https://lapcoder.github.io/header.css" /><!--/header.css-->
+		<!-- This header can be used on many sites -->
 		<script>
 			const elements = document.querySelectorAll(
 				"nav > div.nav-container div.child-menu > a"
@@ -43,192 +43,201 @@
 			<div class="brand-container">
 				<a href="/" tabindex="0">
 					<span class="brand-initials">Main</span>
-					<span class="brand-name"
-						>Main page of&MediumSpace;</span
-					>
-					<script>
-						if ($SITE == undefined) $SITE = "LAPCoder";
-						document.querySelector("a>span.brand-name").innerText += $SITE + "'s website";
-					</script>
 				</a>
+				<span class="brand-name">Main page of&MediumSpace;
+					<select id="site-select" onchange="location = this.value;">
+					</select>'s website
+					<script>
+						var sites = [["SnabbGET", "https://snabbget.github.io/"],
+									 ["LAPCoder", "https://lapcoder.github.io/"]];
+						sites.forEach((e) => {
+								document
+									.querySelector("span.brand-name>select")
+									.innerHTML += `<option${$SITE === e[0] ? " selected" : ""} value="${e[1]}">` + e[0] + "</option>";
+							});
+					</script>
+				</span>
 			</div>
 			<nav>
-				<script>
-					/** START OF LAPCODER NAVBAR */
-					if ($SITE = "LAPCoder") document.querySelector("header>nav").innerHTML = `<div class="nav-container">
-						<div>
-							<input id="slider1" name="slider1" type="checkbox" />
-							<label
-								class="slide has-child"
-								for="slider1"
-								tabindex="0"
-							>
-								<span class="element">Rp</span>
-								<span class="name">Repositories</span>
-							</label>
-							<div class="child-menu">
-								<span class="name">GitHub:</span>
-								<a href="https://github.com/LAPCoder/MyBall.game"
-									>MyBall game</a
-								>
-								<a
-									href="https://github.com/LAPCoder/JS.Terrain.LAPCoder.github.io"
-									>Terrain generator</a
-								>
-								<a href="https://github.com/LAPCoder/Snake"
-									>Snake game</a
-								>
-								<a
-									href="https://github.com/LAPCoder/MultiCalculator"
-									>MultiCalculator</a
-								>
-								<a
-									href="https://github.com/LAPCoder/4U-Programming-language"
-									>4U Programming language</a
-								>
-								<span class="name">Links:</span>
-								<a href="https://lapcoder.github.io/MyBall.game/"
-									>MyBall game</a
-								>
-								<a
-									href="https://lapcoder.github.io/JS.Terrain.LAPCoder.github.io/"
-									>Terrain generator</a
-								>
-								<a
-									href="https://lapcoder.github.io/MultiCalculator/"
-									>MultiCalculator</a
-								>
-								<a
-									href="https://lapcoder.github.io/4U-Programming-language/"
-									>4U Programming language</a
-								>
-							</div>
-						</div>
-						<div>
-							<input id="slider2" name="slider2" type="checkbox" />
-							<label
-								class="slide has-child"
-								for="slider2"
-								tabindex="0"
-							>
-								<span class="element">La</span>
-								<span class="name">Languages</span>
-							</label>
-							<div class="child-menu">
-								<a href="/languages/"><b>All</b></a>
-								<a href="/languages/#4u">4U</a>
-								<a href="/languages/#html">HTML</a>
-								<a href="/languages/#js">JavaScript</a>
-								<a href="/languages/#css">CSS</a>
-								<a href="/languages/#php">PHP</a>
-								<a href="/languages/#py">Python</a>
-								<a href="/languages/#c">C</a>
-								<a href="/languages/#cpp">C++</a>
-								<a href="/languages/#cs">C#</a>
-								<a href="/languages/#java">Java</a>
-								<a href="/languages/#bash">Bash</a>
-								<a href="/languages/#batch">Batch</a>
-								<a href="/languages/#lex">Lex</a>
-								<a href="/languages/#yacc">Yacc</a>
-								<a href="/languages/#openscad">OpenSCAD</a>
-								<a href="/languages/#arduino">Arduino</a>
-								<a href="/languages/#bf">Brainfuck</a>
-							</div>
-						</div>
-						<div>
-							<a class="slide" href="/#stats">
-								<span class="element">St</span>
-								<span class="name">Stats</span>
-							</a>
-						</div>
-						<div>
-							<input id="slider4" name="slider4" type="checkbox" />
-							<label
-								class="slide has-child"
-								for="slider4"
-								tabindex="0"
-							>
-								<span class="element">Pr</span>
-								<span class="name">Projects</span>
-							</label>
-							<div class="child-menu">
-								<span class="name">Transpiler:</span>
-								<a href="/transpiler/brainfuck/">Brainfuck</a>
-								<span class="name">Other:</span>
-								<a href="/duck/">Ducker</a>
-								<!--a href="/projects/prime">Primes numbers </a-->
-							</div>
-						</div>
-						<div>
-							<a class="slide" href="https://github.com/LAPCoder">
-								<span class="element">GH</span>
-								<span class="name">GitHub</span>
-							</a>
-						</div>
-						<div>
-							<input id="slider3" name="slider3" type="checkbox" />
-							<label
-								class="slide has-child"
-								for="slider3"
-								tabindex="0"
-							>
-								<span class="element">Th</span>
-								<span class="name">Thanks</span>
-							</label>
-							<div class="child-menu">
-								<span class="name"
-									>Thanks to sites for images, code...</span
-								>
-								<span class="name">GitHub:</span>
-								<a
-									href="https://github.com/anuraghazra/github-readme-stats"
-									>anuraghazra</a
-								>
-								<a
-									href="https://github.com/ryo-ma/github-profile-trophy"
-									>ryo-ma</a
-								>
-								<span class="name">Codepen:</span>
-								<a
-									href="https://codepen.io/elemental-shift/details/ngobov"
-									>elemental-shift</a
-								>
-								<span class="name">Links:</span>
-								<a
-									href="https://iconvulture.com/wp-content/uploads/2017/12/code.svg"
-									>Icon Vulture</a
-								>
-								<a
-									href="https://upload.wikimedia.org/wikipedia/commons/8/8b/Aiga_downarrow.svg"
-									>Wikimedia</a
-								>
-								<a
-									href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css"
-									>Fira Code</a
-								>
-								<a
-									href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"
-									>Highlight.js</a
-								>
-								<a
-									href="https://www.svgrepo.com/show/170187/duckling.svg"
-									>SVG Repo</a
-								>
-								<a
-									href="https://images.vectorhq.com/images/previews/fb4/tiger-face-clip-art-105756.png"
-									>Vectorhq</a
-								>
-							</div>
-						</div>
-						<div>
-							<a
-								class="slide"
-								href="https://github.com/LAPCoder/LAPCoder.github.io/pulls"
-							>
-								<span class="element">Ct</span>
-								<span class="name">Contribute</span>
-							</a>
-						</div>` + document.querySelector("header>nav").innerHTML;
+				<div>
+					<script>
+						/** START OF LAPCODER NAVBAR */
+						if (($SITE = "LAPCoder"))
+							document.querySelector("header>nav>div").innerHTML =
+								`<div class="nav-container">
+									<div>
+										<input id="slider1" name="slider1" type="checkbox" />
+										<label
+											class="slide has-child"
+											for="slider1"
+											tabindex="0"
+										>
+											<span class="element">Rp</span>
+											<span class="name">Repositories</span>
+										</label>
+										<div class="child-menu">
+											<span class="name">GitHub:</span>
+											<a href="https://github.com/LAPCoder/MyBall.game"
+												>MyBall game</a
+											>
+											<a
+												href="https://github.com/LAPCoder/JS.Terrain.LAPCoder.github.io"
+												>Terrain generator</a
+											>
+											<a href="https://github.com/LAPCoder/Snake"
+												>Snake game</a
+											>
+											<a
+												href="https://github.com/LAPCoder/MultiCalculator"
+												>MultiCalculator</a
+											>
+											<a
+												href="https://github.com/LAPCoder/4U-Programming-language"
+												>4U Programming language</a
+											>
+											<span class="name">Links:</span>
+											<a href="https://lapcoder.github.io/MyBall.game/"
+												>MyBall game</a
+											>
+											<a
+												href="https://lapcoder.github.io/JS.Terrain.LAPCoder.github.io/"
+												>Terrain generator</a
+											>
+											<a
+												href="https://lapcoder.github.io/MultiCalculator/"
+												>MultiCalculator</a
+											>
+											<a
+												href="https://lapcoder.github.io/4U-Programming-language/"
+												>4U Programming language</a
+											>
+										</div>
+									</div>
+									<div>
+										<input id="slider2" name="slider2" type="checkbox" />
+										<label
+											class="slide has-child"
+											for="slider2"
+											tabindex="0"
+										>
+											<span class="element">La</span>
+											<span class="name">Languages</span>
+										</label>
+										<div class="child-menu">
+											<a href="/languages/"><b>All</b></a>
+											<a href="/languages/#4u">4U</a>
+											<a href="/languages/#html">HTML</a>
+											<a href="/languages/#js">JavaScript</a>
+											<a href="/languages/#css">CSS</a>
+											<a href="/languages/#php">PHP</a>
+											<a href="/languages/#py">Python</a>
+											<a href="/languages/#c">C</a>
+											<a href="/languages/#cpp">C++</a>
+											<a href="/languages/#cs">C#</a>
+											<a href="/languages/#java">Java</a>
+											<a href="/languages/#bash">Bash</a>
+											<a href="/languages/#batch">Batch</a>
+											<a href="/languages/#lex">Lex</a>
+											<a href="/languages/#yacc">Yacc</a>
+											<a href="/languages/#openscad">OpenSCAD</a>
+											<a href="/languages/#arduino">Arduino</a>
+											<a href="/languages/#bf">Brainfuck</a>
+										</div>
+									</div>
+									<div>
+										<a class="slide" href="/#stats">
+											<span class="element">St</span>
+											<span class="name">Stats</span>
+										</a>
+									</div>
+									<div>
+										<input id="slider4" name="slider4" type="checkbox" />
+										<label
+											class="slide has-child"
+											for="slider4"
+											tabindex="0"
+										>
+											<span class="element">Pr</span>
+											<span class="name">Projects</span>
+										</label>
+										<div class="child-menu">
+											<span class="name">Transpiler:</span>
+											<a href="/transpiler/brainfuck/">Brainfuck</a>
+											<span class="name">Other:</span>
+											<a href="/duck/">Ducker</a>
+											<!--a href="/projects/prime">Primes numbers </a-->
+										</div>
+									</div>
+									<div>
+										<a class="slide" href="https://github.com/LAPCoder">
+											<span class="element">GH</span>
+											<span class="name">GitHub</span>
+										</a>
+									</div>
+									<div>
+										<input id="slider3" name="slider3" type="checkbox" />
+										<label
+											class="slide has-child"
+											for="slider3"
+											tabindex="0"
+										>
+											<span class="element">Th</span>
+											<span class="name">Thanks</span>
+										</label>
+										<div class="child-menu">
+											<span class="name"
+												>Thanks to sites for images, code...</span
+											>
+											<span class="name">GitHub:</span>
+											<a
+												href="https://github.com/anuraghazra/github-readme-stats"
+												>anuraghazra</a
+											>
+											<a
+												href="https://github.com/ryo-ma/github-profile-trophy"
+												>ryo-ma</a
+											>
+											<span class="name">Codepen:</span>
+											<a
+												href="https://codepen.io/elemental-shift/details/ngobov"
+												>elemental-shift</a
+											>
+											<span class="name">Links:</span>
+											<a
+												href="https://iconvulture.com/wp-content/uploads/2017/12/code.svg"
+												>Icon Vulture</a
+											>
+											<a
+												href="https://upload.wikimedia.org/wikipedia/commons/8/8b/Aiga_downarrow.svg"
+												>Wikimedia</a
+											>
+											<a
+												href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css"
+												>Fira Code</a
+											>
+											<a
+												href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"
+												>Highlight.js</a
+											>
+											<a
+												href="https://www.svgrepo.com/show/170187/duckling.svg"
+												>SVG Repo</a
+											>
+											<a
+												href="https://images.vectorhq.com/images/previews/fb4/tiger-face-clip-art-105756.png"
+												>Vectorhq</a
+											>
+										</div>
+									</div>
+									<div>
+										<a
+											class="slide"
+											href="https://github.com/LAPCoder/LAPCoder.github.io/pulls"
+										>
+											<span class="element">Ct</span>
+											<span class="name">Contribute</span>
+										</a>
+									</div>` + document.querySelector("header>nav").innerHTML;
 						/** END OF LAPCODER NAVBAR */
 						/** START OF SNABBGET NAVBAR */
 					</script>
