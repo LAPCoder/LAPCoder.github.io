@@ -16,33 +16,35 @@
  - limitations under the License.
 -->
 
+<!-- WARNING!
+	Change this header can have BIG concequences on ALL website that use this header.
+	Please, don't change this header unless you know what you are doing.
+-->
+
 <html>
 	<body>
-		<link rel="stylesheet" href="https://lapcoder.github.io/header.css" /><!--/header.css-->
-		<!-- This header can be used on many sites -->
 		<script>
-			const elements = document.querySelectorAll(
-				"nav > div.nav-container div.child-menu > a"
-			);
-			for (var i = 0; i < elements.length; i++) {
-				elements[i].addEventListener("focus", function () {
-					var input =
-						this.closest("div.child-menu").previousSibling
-							.previousSibling.previousSibling.previousSibling;
-					input.checked = true;
-				});
-				elements[i].addEventListener("blur", function () {
-					var input =
-						this.closest("div.child-menu").previousSibling
-							.previousSibling.previousSibling.previousSibling;
-					input.checked = false;
-				});
-			}
+			// Check if the file "/header.css" stylesheet exists.
+			// If it does, load it.
+			// If it doesn't, load "<link rel="stylesheet" href="https://lapcoder.github.io/header.css" />".
+			$.ajax({
+				url: "/header.css",
+				type: "HEAD",
+				success: function() {
+					$("body").append("<link rel='stylesheet' href='/header.css' />");
+					console.info("Preview mode or site = lapcoder.github.io")
+				},
+				error: function() {
+					$("body").append("<link rel='stylesheet' href='https://lapcoder.github.io/header.css' />");
+				}
+			});
 		</script>
+
+		<!-- This header can be used on many sites -->
 		<header class="masthead">
 			<div class="brand-container">
 				<a href="/" tabindex="0">
-					<span class="brand-initials">Main</span>
+					<span class="brand-initials"></span>
 				</a>
 				<span class="brand-name">Main page of&MediumSpace;
 					<select id="site-select" onchange="location = this.value;">
@@ -50,6 +52,26 @@
 					<script>
 						var sites = [["SnabbGET", "https://snabbget.github.io/"],
 									 ["LAPCoder", "https://lapcoder.github.io/"]];
+
+						function getsite() {
+							// Get site name with URL
+							var site = location.href.split("/")[2];
+							// Ckeck if the site name is in the list of sites
+							sites.forEach(siteTemp => {
+								if (siteTemp[1].split("/")[2] == site) {
+									return siteTemp[0];
+								}
+							});
+							return site;
+						}
+
+						//Execute 'getsite' function after the page is loaded.
+						var $SITE;
+						if ($SITE == undefined) $(document).ready(function() {
+							$SITE = getsite();
+							console.log("$SITE = " + $SITE);
+						});
+
 						sites.forEach((e) => {
 								document
 									.querySelector("span.brand-name>select")
@@ -279,6 +301,25 @@
 										</a>
 									</div>` + document.querySelector("header>nav").innerHTML;
 						/** END OF SNABBGET NAVBAR */
+
+						
+						const elements = document.querySelectorAll(
+							"nav div.nav-container div.child-menu > a"
+						);
+						for (var i = 0; i < elements.length; i++) {
+							elements[i].addEventListener("focus", function () {
+								var input =
+									this.closest("div.child-menu").previousSibling
+										.previousSibling.previousSibling.previousSibling;
+								input.checked = true;
+							});
+							elements[i].addEventListener("blur", function () {
+								var input =
+									this.closest("div.child-menu").previousSibling
+										.previousSibling.previousSibling.previousSibling;
+								input.checked = false;
+							});
+						}
 					</script>
 					<div>
 						<a class="slide" href="#">

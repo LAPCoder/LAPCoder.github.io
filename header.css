@@ -295,7 +295,7 @@ header nav .slide .name {
 	position: relative;
 	overflow: hidden;
 }
-
+/*
 header nav .has-child .name:after {
 	content: "";
 	width: 20px;
@@ -324,7 +324,7 @@ header nav .has-child .name:after {
 	-ms-transform-origin: 50% 50%;
 	-webkit-transform-origin: 50% 50%;
 	transform-origin: 50% 50%;
-}
+}*/
 
 header nav .child-menu {
 	display: block;
@@ -358,7 +358,8 @@ header nav .child-menu a {
 }
 
 header nav input:checked~.child-menu,
-header nav label.slide:focus~div.child-menu {
+header nav label.slide:focus~div.child-menu ,
+header nav div.child-menu a:focus {
 	max-height: 100em;
 	-moz-transition-property: max-height;
 	-o-transition-property: max-height;
@@ -495,6 +496,11 @@ header nav label.slide:focus ~ .has-child .name:after {
 	display: block;
 	line-height: 42px;
 	text-align: center;
+	content: "Home";
+}
+
+.masthead .brand-initials:hover {
+	filter: brightness(1.5);
 }
 
 .masthead .brand-name {
@@ -516,11 +522,20 @@ header nav label.slide:focus ~ .has-child .name:after {
 	}
 
 	.masthead .brand-container {
-		padding: 10px 0 50px 0px;
+		padding: 10px 0 20px 0px;
 	}
 
 	.masthead .brand-container a {
 		display: block;
+	}
+
+	.masthead .brand-initials {
+		background-image: url("https://icon-library.com/images/home-button-icon/home-button-icon-29.jpg");
+		height: 100px;
+		background-size: 100px;
+		background-repeat: no-repeat;
+		background-position: center;
+		transition: all 1s cubic-bezier(.3,-0.55,.54,1.42);
 	}
 
 	section.main {
