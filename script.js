@@ -17,7 +17,7 @@
 hljs.initHighlightingOnLoad();
 
 $(function () {
-	$("#header").load("/header.html");
+	$("#header").load("https://lapcoder.github.io/header.html");
 });
 
 var $SITE = "LAPCoder";
