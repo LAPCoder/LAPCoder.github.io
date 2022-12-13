@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<!--
+ - Copyright @LAPCoder
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+-->
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="LAPCoder's website" />
+		<meta name="author" content="LAPCoder" />
+		<title>Image viewer</title>
+		<link rel="icon" href="/images/favicon2.png" />
+		<link rel="stylesheet" href="/styles.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/vs.min.css"
+			integrity="sha256-eP4Vo66NBPibeCiQAKBnSATpJwb5h5m86Rj17RJtv0s="
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"
+			integrity="sha256-qfE30W16RMv5gWnzx9sOJK7dxoegFBP49NUm5k9X8kE="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/brainfuck.min.js"
+			integrity="sha256-1WS8Fr0qsb2mQ4GLAiX2nIoHDnr0VII4GlCUt4hS4Mk="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous"
+		></script>
+		<script src="/script.js"></script>
+	</head>
+	<body>
+		<script>
+			var n = 1;
+			function a(b)
+			{
+				document.getElementsByClassName('imgV')[0].style.transform = `translateX(${b ? '-':''}90vw)`;
+				var p = document.createElement('img');
+					p.src = `https:\/\/picsum.photos/1200/900?random=${b ? ++n:--n}`;
+					p.classList.add('imgV');
+					p.style.transform = `translateX(${!b ? '-':''}90vw)`;
+				window.setTimeout(() => {
+					document.getElementById('vsdiv').innerHTML = "";
+					$('.viewer>div').append(p);
+					window.setTimeout(() => {
+						p.style.transform = 'translateX(0vw)';
+					}, "50"); // ADJUST ME!
+				},"1000");
+			}
+		</script>
+		<section class="main">
+			<h1>Image viewer</h1>
+			<div class="viewer">
+				<button class="bLeft" onclick="a(false);">&leftarrowtail;</button>
+				<button class="bRight" onclick="a(true);">&rightarrowtail;</button>
+				<div id="vsdiv">
+					<img class="imgV" src="https://picsum.photos/1200/900?random=1" />
+				</div>
+			</div>
+			<div id="header"></div>
+		</section>
+	</body>
+</html>

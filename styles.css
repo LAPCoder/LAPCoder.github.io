@@ -235,3 +235,32 @@ input#inputUsr {
 header a:hover {
 	text-decoration: underline;
 }
+
+img.imgV {
+	border-color: coral;
+	border-radius: 1em;
+	border-width: 0.5em;
+	border-style: solid;
+	max-width: 80%;
+	margin-left: 9%;
+	transition: transform 1s;
+}
+
+.viewer > * {
+	display: initial;
+}
+
+.viewer {
+	height: calc((100vw - var(--wight-header)) * 0.6 + 1em);
+}
+
+.viewer > button {
+	max-width: 10%;
+	height: calc((100vw - var(--wight-header)) * 0.6 + 0.7em);
+	margin: 0;
+	position: absolute;
+}
+
+button.bRight {
+	right: 0;
+}

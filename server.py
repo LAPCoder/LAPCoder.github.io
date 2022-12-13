@@ -1,3 +1,4 @@
+#! /bin/python3
 import http.server, ssl
 
 # Simple server for debug.
