@@ -530,7 +530,7 @@ header nav label.slide:focus ~ .has-child .name:after {
 	}
 
 	.masthead .brand-initials {
-		background-image: url("https://icon-library.com/images/home-button-icon/home-button-icon-29.jpg");
+		background-image: url("https://raw.githubusercontent.com/LAPCoder/LAPCoder.github.io/main/images/home-button-icon-29.png");
 		height: 100px;
 		background-size: 100px;
 		background-repeat: no-repeat;
